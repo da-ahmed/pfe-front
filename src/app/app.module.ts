@@ -21,7 +21,7 @@ import { AppComponent } from 'app/app.component';
 import { AppStoreModule } from 'app/store/store.module';
 import { LayoutModule } from 'app/layout/layout.module';
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
     {
         path        : '',
         loadChildren: './myapp/gapp.module#GappModule'

@@ -1,7 +1,7 @@
 {
     "extends": "tslint:recommended",
     "rules": {
-        "array-type": false,
+      "array-type": false,
         "arrow-parens": false,
         "deprecation": {
       "severity": "warning"
@@ -67,10 +67,10 @@
         ],
         "no-empty": false,
         "no-inferrable-types": [
-            true,
+            false,
             "ignore-params"
         ],
-        "no-non-null-assertion": true,
+        "no-non-null-assertion": false,
         "no-string-literal": false,
         "no-switch-case-fall-through": true,
         "no-trailing-whitespace": false,

@@ -5,13 +5,14 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
 import {TokenStorageService} from '../_services/token-storage.service';
 import {AuthService} from '../_services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector     : 'login',
     templateUrl  : './login.component.html',
     styleUrls    : ['./login.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : fuseAnimations,
 })
 export class LoginComponent implements OnInit
 {
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit
     errorMessage = '';
     roles: string[] = [];
     loginForm: FormGroup;
+    lognotok: boolean = false ;
 
     /**
      * Constructor
@@ -32,7 +34,10 @@ export class LoginComponent implements OnInit
         private _fuseConfigService: FuseConfigService,
         private _formBuilder: FormBuilder,
         private authService: AuthService,
-        private tokenStorage: TokenStorageService
+        private tokenStorage: TokenStorageService,
+        private router: Router
+
+
     )
     {
         // Configure the layout
@@ -52,6 +57,7 @@ export class LoginComponent implements OnInit
                 }
             }
         };
+        this.lognotok = false;
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -74,24 +80,26 @@ export class LoginComponent implements OnInit
     }
 
     onSubmit() {
+        console.log('a');
+        console.log(this.form.username);
+        console.log(this.form.password);
         this.authService.login(this.form).subscribe(
             data => {
                 this.tokenStorage.saveToken(data.accessToken);
                 this.tokenStorage.saveUser(data);
 
-                this.isLoginFailed = false;
-                this.isLoggedIn = true;
+
                 this.roles = this.tokenStorage.getUser().roles;
-                this.reloadPage();
+                this.router.navigate(['/apps/calendar']);
+
             },
             err => {
                 this.errorMessage = err.error.message;
-                this.isLoginFailed = true;
+                this.tokenStorage.signOut();
+                this.lognotok = true ;
             }
         );
     }
 
-    reloadPage() {
-        window.location.reload();
-    }
+
 }
