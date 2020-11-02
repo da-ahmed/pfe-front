@@ -23,6 +23,10 @@ import { LayoutModule } from 'app/layout/layout.module';
 
 const appRoutes: Routes = [
     {
+        path        : '',
+        loadChildren: './myapp/gapp.module#GappModule'
+    },
+    {
         path        : 'apps',
         loadChildren: './main/apps/apps.module#AppsModule'
     },
@@ -46,6 +50,7 @@ const appRoutes: Routes = [
         path      : '**',
         redirectTo: 'apps/dashboards/analytics'
     }
+
 ];
 
 @NgModule({

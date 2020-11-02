@@ -129,7 +129,7 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
                 this._fuseConfigService.config = config;
             });
 
-        // Add customize nav item that opens the bar programmatically
+     /*   // Add customize nav item that opens the bar programmatically
         const customFunctionNavItem = {
             id      : 'custom-function',
             title   : 'Custom Function',
@@ -148,7 +148,7 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
             ]
         };
 
-        this._fuseNavigationService.addNavigationItem(customFunctionNavItem, 'end');
+        this._fuseNavigationService.addNavigationItem(customFunctionNavItem, 'end');*/
     }
 
     /**

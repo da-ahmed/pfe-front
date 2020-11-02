@@ -7,8 +7,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 import { FuseSharedModule } from '@fuse/shared.module';
+import {LoginComponent} from './login.component';
 
-import { LoginComponent } from 'app/main/pages/authentication/login/login.component';
+
 
 const routes = [
     {
