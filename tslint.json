@@ -72,7 +72,7 @@
         ],
         "no-non-null-assertion": false,
         "no-string-literal": false,
-        "no-switch-case-fall-through": true,
+        "no-switch-case-fall-through": false,
         "no-trailing-whitespace": false,
         "no-var-requires": false,
         "object-literal-shorthand": false,
@@ -84,11 +84,11 @@
             "single"
         ],
         "typedef": [
-            true,
+            false,
             "call-signature",
             "property-declaration"
         ],
-        "trailing-comma": false,
+      /*  "trailing-comma": false,
         "no-conflicting-lifecycle": true,
         "no-host-metadata-property": true,
         "no-input-rename": true,
@@ -100,7 +100,7 @@
         "template-banana-in-box": true,
         "template-no-negated-async": true,
         "use-lifecycle-interface": true,
-        "use-pipe-transform-interface": true,
+        "use-pipe-transform-interface": true,*/
         "variable-name": [
             true,
             "ban-keywords",
